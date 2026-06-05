@@ -1,0 +1,19 @@
+{
+  "name": "birthday-ci",
+  "version": "1.0.0",
+  "description": "Interactive birthday poem website - 七秩晋一·寿词",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'No build step required - static site'",
+    "deploy": "wrangler pages deploy ."
+  },
+  "keywords": [
+    "birthday",
+    "poem",
+    "interactive",
+    "cloudflare-pages"
+  ],
+  "author": "",
+  "license": "ISC"
+}
