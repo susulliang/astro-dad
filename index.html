@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>七秩晋一·寿词</title>
+<title>七十一</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&display=swap');
+  @font-face {
+    font-family: 'HinaMincho';
+    src: url('HinaMincho.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 
   :root {
     --ink: #07070a;
@@ -23,7 +28,7 @@
     background: var(--ink);
     overflow: hidden;
     cursor: none;
-    font-family: 'Noto Serif SC', 'Songti SC', serif;
+    font-family: 'HinaMincho', serif;
   }
 
   /* Ink texture overlay */
@@ -78,7 +83,7 @@
   /* Floating characters */
   .float-char {
     position: absolute;
-    font-family: 'Noto Serif SC', serif;
+    font-family: 'HinaMincho', serif;
     color: rgba(232,224,208,0.18);
     font-weight: 300;
     pointer-events: all;
@@ -129,7 +134,7 @@
   #img-photo {
     width: 180px;
     opacity: 0.85;
-    filter: sepia(0.3) contrast(1.1);
+    filter: contrast(1.1);
     box-shadow: 0 0 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,0,0,0.3);
   }
 
@@ -155,10 +160,20 @@
     opacity: 1;
   }
 
+  /* Hide scrollbar while keeping scroll functionality */
+  #poem-panel::-webkit-scrollbar {
+    display: none;
+  }
+  
+  #poem-panel {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   .poem-line {
     writing-mode: vertical-rl;
     text-orientation: upright;
-    font-family: 'Noto Serif SC', serif;
+    font-family: 'HinaMincho', serif;
     font-size: clamp(13px, 1.3vw, 17px);
     color: var(--paper);
     opacity: 0;
@@ -262,6 +277,30 @@
   }
 
   #red-line.visible { opacity: 1; }
+
+  /* Mobile/narrow device: scrollable poem panel */
+  @media (max-width: 1024px) {
+    #poem-panel {
+      right: auto;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: auto;
+      top: auto;
+      bottom: 12vh;
+      transform: translateY(0);
+      overflow-x: auto;
+      overflow-y: hidden;
+      pointer-events: auto;
+      padding: 0 4vw;
+      white-space: nowrap;
+    }
+
+    .poem-line {
+      margin-bottom: 0;
+      white-space: normal;
+    }
+  }
 </style>
 </head>
 <body>
@@ -291,8 +330,8 @@
 
 <!-- Title -->
 <div id="title-block">
-  <div id="main-title">寿词</div>
-  <div id="sub-title">七秩晋一</div>
+  <div id="main-title">七十一</div>
+  <div id="sub-title">寿</div>
 </div>
 
 <div id="hint">点击・漂浮</div>
